@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-
+  before_action :set_user
   before_action :set_pet, only: [:show, :update, :edit, :destroy]
 
   def index
@@ -11,10 +11,12 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @pet.owner = @user
   end
 
   def create
     @pet = Pet.new(pet_params)
+    @pet.owner = @user
     if @pet.save
       redirect_to @pet
     else
@@ -45,8 +47,12 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
+  def set_user
+    @user = current_user
+  end
+
   def pet_params
-    params.require(:pet).permit(:name, :species, :photo, :address, :size, :user)
+    params.require(:pet).permit(:name, :species, :photo, :address, :size, :details)
   end
 
 end

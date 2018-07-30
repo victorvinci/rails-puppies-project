@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
+
   config.webpacker.check_yarn_integrity = true
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -37,6 +38,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -61,3 +64,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+
+

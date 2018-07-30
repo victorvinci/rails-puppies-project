@@ -7,5 +7,6 @@ Pet.destroy_all
     size: ["microscopic", "small", "medium", "large", "extra-large", "monster-sized"].sample,
     details: Faker::Seinfeld.quote,
     )
-  pet.save
+  pet.save!
 end
+

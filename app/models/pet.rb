@@ -1,5 +1,5 @@
 class Pet < ApplicationRecord
-  belongs_to :user, class_name: "User", foreign_key: "owner_id"
+  belongs_to :owner, class_name: "User", foreign_key: "owner_id"
   has_many :bookings
   validates :name, presence: true
   validates :species, presence: true

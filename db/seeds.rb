@@ -18,6 +18,3 @@ pet = Pet.new(
     )
   pet.save!
 end
-
-
-

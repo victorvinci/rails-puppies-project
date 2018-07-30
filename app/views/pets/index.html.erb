@@ -1,5 +1,6 @@
+<%= link_to 'New', new_pet_path %>
 <% @pets.each do |pet| %>
-<h2><%= pet.name %></h2>
-<h3><%= pet.address %></h3>
-<%= link_to 'Show', pet_path(pet) %>
+  <h2><%= pet.name %></h2>
+  <h3><%= pet.address %></h3>
+  <%= link_to 'Show', pet_path(pet) %>
 <% end %>

@@ -4,7 +4,8 @@ class Pet < ApplicationRecord
   validates :name, presence: true
   validates :species, presence: true
   validates :address, presence: true
-  validates :size, inclusion: { in: ["microscopic", "small", "medium", "large", "extra-large", "monster-sized"],
-    message: "Not a valid size"}
-#  validates :details, length: { minimum: 10 }
+  # Size specified in _form for pet. All validation contained there
+  validates :size, presence: true
+  # Validates :details, length: { minimum: 10 }
+  mount_uploader :photo, PhotoUploader
 end

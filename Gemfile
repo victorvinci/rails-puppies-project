@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 ruby '2.4.4'
 
 gem 'bootsnap', require: false
+# Add cloudinary for photo display/render
+gem 'cloudinary'
+# Carrierwave for photo upload
+gem 'carrierwave'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'

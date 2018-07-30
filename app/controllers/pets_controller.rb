@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_user
+  before_action  :set_user
   before_action :set_pet, only: [:show, :update, :edit, :destroy]
 
   def index

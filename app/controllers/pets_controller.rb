@@ -33,7 +33,7 @@ class PetsController < ApplicationController
   private
 
   def set_pet
-
+    @pet = Pet.find(params[:id])
   end
 
   def pet_params

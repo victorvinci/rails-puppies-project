@@ -7,5 +7,5 @@ Rails.application.routes.draw do
       resources :review, except: %i[index destroy]
     end
   end
-
+  resources :bookings, only: :index
 end

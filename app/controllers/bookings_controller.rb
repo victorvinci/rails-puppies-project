@@ -5,6 +5,10 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def index
+    @bookings = policy_scope(Booking)
+  end
+
   def new
     @booking = Booking.new
     authorize @booking

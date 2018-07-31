@@ -1,11 +1,11 @@
 class PetsController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:new, :create]
   before_action :set_pet, only: [:show, :update, :edit, :destroy]
   before_action :owner?, only: [:update, :edit, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @pets = policy_scope(Pet) #Pet.all
+    @pets = policy_scope(Pet)
   end
 
   def show
@@ -14,6 +14,7 @@ class PetsController < ApplicationController
   def new
     @pet = Pet.new
     @pet.owner = @user
+    authorize @pet
   end
 
   def create
@@ -28,7 +29,6 @@ class PetsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -49,6 +49,7 @@ class PetsController < ApplicationController
 
   def set_pet
     @pet = Pet.find(params[:id])
+    authorize @pet
   end
 
   def set_user

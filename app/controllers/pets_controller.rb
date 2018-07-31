@@ -40,9 +40,9 @@ class PetsController < ApplicationController
   def destroy
     if @pet.owner == current_user
       @pet.destroy
-      redirect_to pets_url, notice: "Your bet has been put down :("
+      redirect_to pets_path, notice: "Your bet has been put down :("
     else
-      redirect_to pets_url, notice: "Only the owner can put down this good boy"
+      redirect_to pets_path, notice: "Only the owner can put down this good boy"
     end
   end
 

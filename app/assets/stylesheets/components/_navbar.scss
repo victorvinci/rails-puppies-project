@@ -12,10 +12,15 @@
 }
 
 /* Logo */
-.navbar-wagon-brand {
+.navbar-wagon-brand img {
   height: auto;
   font-size: x-large;
   color: white;
+}
+
+.navbar-wagon-brand:hover {
+  text-decoration: none;
+  color: #FD8CD4;
 }
 
 .navbar-wagon-brand:hover {
@@ -61,6 +66,7 @@
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
+  font-weight: lighter !important;
   color: #E6E6E6 !important;
   font-size: 15px !important;
   line-height: 22px !important;
@@ -87,7 +93,7 @@
   color: white;
 }
 
-.open > .dropdown-menu {
+ .open > .dropdown-menu {
   background-color: transparent;
   box-shadow: none;
 }

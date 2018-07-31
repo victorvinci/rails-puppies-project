@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   before_action  :set_user
   before_action :set_pet, only: [:show, :update, :edit, :destroy]
+  before_action :owner?, only: [:update, :edit, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -59,6 +60,11 @@ class PetsController < ApplicationController
 
   def pet_params
     params.require(:pet).permit(:name, :species, :photo, :address, :size, :details)
+  end
+
+  #Check run so that user can't spoof URLs
+  def owner?
+    @pet.owner == current_user
   end
 
 end

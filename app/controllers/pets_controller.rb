@@ -59,7 +59,7 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :species, :photo, :address, :size, :details)
+    params.require(:pet).permit(:name, :species, :photo, :address, :size, :details, :photo_cache)
   end
 
   #Check run so that user can't spoof URLs

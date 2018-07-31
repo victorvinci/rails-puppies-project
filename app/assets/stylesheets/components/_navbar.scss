@@ -12,10 +12,15 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: auto;
-  font-size: x-large;
-  color: white;
+// .navbar-wagon-brand img {
+//   height: auto;
+//   font-size: x-large;
+//   color: white;
+// }
+
+.navbar-wagon-brand {
+  color: #F6F6F6;
+  font-size: 25px;
 }
 
 .navbar-wagon-brand:hover {

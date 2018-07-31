@@ -1,0 +1,62 @@
+.form-menu {
+  justify-content: center;
+  grid-row: 3;
+  display: flex;
+  height: 25%;
+  width: 75%;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 0 10px;
+}
+
+.btn-container p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 7px;
+}
+
+.button {
+  border: 0.5px solid #f7f7f7;
+  text-align: center;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .8s;
+  border-radius: 5%;
+  color: lightgrey;
+}
+
+.button:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 3px 0px 0px;
+  text-decoration: none;
+  color: #FD8CD4;
+}
+
+.button:hover {
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #FD8CD4;
+  border-color: #FD8CD4;
+
+}
+
+.button:focus {
+  text-decoration: none;
+  color: #FD8CD4;
+  border-color: #FD8CD4;
+}
+
+#searchbar {
+  width: 55%;
+  box-shadow: 0px 0px 10px #FD8CD4;
+  box-sizing: border-box;
+  padding: 4px 5px;
+  margin-right: 10px;
+}
+

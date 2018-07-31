@@ -1,0 +1,8 @@
+<h1>These are the results for <strong><%= params[:query] %></strong></h1>
+
+
+<% @results.each do |result|%>
+<h3> Your new friend's name is <strong><%= result.name %> </strong></h3>
+<h4> <strong><%= result.name %> </strong> is a <strong> <%= result.size %> <%= result.species %> </strong> <h4>
+<h5> <strong><%= result.name %> </strong> lives in <strong> <%= result.address %> </strong> <h5>
+<% end %>

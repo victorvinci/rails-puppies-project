@@ -1,7 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_user, only: [:new, :create]
   before_action :set_pet, only: [:show, :update, :edit, :destroy]
-  before_action :owner?, only: [:update, :edit, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index

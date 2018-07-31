@@ -18,6 +18,6 @@ class PetPolicy < ApplicationPolicy
 
   private
   def is_user?
-    record.user_id == user
+    record.user_id == user.id
   end
 end

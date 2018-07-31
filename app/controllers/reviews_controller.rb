@@ -10,18 +10,19 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
+    @review.booking = Booking.find(params[:booking_id])
     # @review_owner = Review.new(review_params_owner)
     # @review_user = Review.new(review_params_user)
-    if @can_perform_action && @review.save
-      redirect_to new_pet_booking_review_path(@review), notice: 'Review was successfully created.'
-    elsif can_create
-      render :new
+    if can_perform_action && @review.save
+      redirect_to bookings_path(@review.booking), notice: 'Review was successfully created.'
     else
-      render :home
+      render :new
     end
   end
 
@@ -30,24 +31,24 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    if @can_perform_action && @review.update(review_params)
-      redirect_to pet_booking_review_path(@review), notice: 'Review was successfully edited.'
-    elsif can_create
-      render :new
-    else
-      render :edit
-    end
+    # if @can_perform_action && @review.update(review_params)
+    #   redirect_to pet_booking_review_path(@review), notice: 'Review was successfully edited.'
+    # elsif can_create
+    #   render :new
+    # else
+    #   render :edit
+    # end
   end
 
   def destroy
-    if @can_perform_action
-       @review.destroy
-      redirect_to pet_booking_reviews_path(@review), notice: "You have deleted your review... be nice, tell us your thoughts"
-    else
-      redirect_to pet_booking_reviews_path(@review), notice: "Sorry, you cannot destroy what's not yours!"
-    end
+    # if @can_perform_action
+    #    @review.destroy
+    #   redirect_to pet_booking_reviews_path(@review), notice: "You have deleted your review... be nice, tell us your thoughts"
+    # else
+    #   redirect_to pet_booking_reviews_path(@review), notice: "Sorry, you cannot destroy what's not yours!"
+    # end
   end
-  end
+
 
   private
 

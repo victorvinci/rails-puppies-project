@@ -4,4 +4,12 @@
   <h3><%= booking.pet.name %></h3>
   <h4><%= booking.pet.owner.email %></h4>
   <h5><%= booking.status %></h5>
+
+
+  <% if booking.review.nil? %>
+    <%= link_to 'Review!', new_booking_review_path( booking) %>
+   <% else %>
+    <%= booking.review.pet_rating %>
+    <%= booking.review.pet_content %>
+  <% end %>
 <% end %>

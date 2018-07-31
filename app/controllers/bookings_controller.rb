@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @pet.save
-      redirect_to @booking
+      redirect_to pet_booking_path(@booking), notice: 'Booking made. Enjoy your pet.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to @booking, notice: 'Booking made. Enjoy your pet.'
+      redirect_to pet_booking_path(@booking), notice: 'Booking changed. Enjoy your pet.'
     else
       render :edit
     end

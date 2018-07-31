@@ -14,6 +14,10 @@ gem 'redis'
 gem 'devise'
 gem 'jquery'
 
+#use Pundit for user authorisation
+gem "pundit"
+
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'

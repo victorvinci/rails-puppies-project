@@ -1,11 +1,11 @@
 class PetsController < ApplicationController
-  before_action  :set_user
+  before_action :set_user
   before_action :set_pet, only: [:show, :update, :edit, :destroy]
   before_action :owner?, only: [:update, :edit, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @pets = Pet.all
+    @pets = policy_scope(Pet) #Pet.all
   end
 
   def show
@@ -19,8 +19,9 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @pet.owner = @user
+    require 'pry'; byebug
     if @pet.save
-      redirect_to @pet
+      redirect_to pet_path(@pet)
     else
       render :new
     end
@@ -32,19 +33,15 @@ class PetsController < ApplicationController
 
   def update
     if @pet.update(pet_params)
-      redirect_to @pet, notice: 'Pet was successfully updated.'
+      redirect_to pet_path(@pet), notice: 'Pet was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-    if @pet.owner == current_user
-      @pet.destroy
-      redirect_to pets_path, notice: "Your bet has been put down :("
-    else
-      redirect_to pets_path, notice: "Only the owner can put down this good boy"
-    end
+    @pet.destroy
+    redirect_to pets_path, notice: "Your bet has been put down :("
   end
 
 
@@ -59,12 +56,8 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :species, :photo, :address, :size, :details, :photo_cache)
+    params.require(:pet).permit(:name, :species, :address, :size, :details, :photo, :photo_cache, :remove_photo)
   end
 
-  #Check run so that user can't spoof URLs
-  def owner?
-    @pet.owner == current_user
-  end
 
 end

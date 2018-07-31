@@ -1,27 +1,24 @@
 <div class="container">
-<%= simple_form_for(@pet) do |f| %>
-  <% if @pet.errors.any? %>
-    <div class="errors-container">
-      <ul>
-        <% @pet.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <%= simple_form_for @pet, html: { multipart: true } do |f| %>
+    <% if @pet.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @pet.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.input :name %>
+    <%= f.input :species %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :address %>
+    <%= f.input :size, collection: ["Microscopic", "Small", "Medium", "Large", "Extra-Large", "Monster-Sized"] %>
+    <%= f.input :details, placeholder: "V v good boy/girl. Deserves lots of pats" %>
+    <%= f.button :submit, "Create", class: "btn btn-primary" %>
   <% end %>
 
-<%= current_user.email %>
-
-<%= simple_form_for @pet do |f| %>
-  <%= f.input :name %>
-  <%= f.input :species %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.input :address %>
-  <%= f.input :size, collection: ["Microscopic", "Small", "Medium", "Large", "Extra-Large", "Monster-Sized"] %>
-  <%= f.input :details, placeholder: "V v good boy/girl. Deserves lots of pats" %>
-  <%= f.button :submit, "Create", class: "btn btn-primary" %>
-<% end %>
-<% end %>
-<%= link_to 'Back', pets_path %>
+  <%= link_to 'Back', pets_path %>
 </div>

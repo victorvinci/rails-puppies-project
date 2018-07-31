@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action  :set_user
+  before_action :set_user
   before_action :set_pet, only: [:show, :update, :edit, :destroy]
   before_action :owner?, only: [:update, :edit, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
@@ -19,6 +19,7 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @pet.owner = @user
+    require 'pry'; byebug
     if @pet.save
       redirect_to @pet
     else
@@ -59,7 +60,7 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :species, :photo, :address, :size, :details, :photo_cache)
+    params.require(:pet).permit(:name, :species, :address, :size, :details, :photo, :photo_cache, :remove_photo)
   end
 
   #Check run so that user can't spoof URLs

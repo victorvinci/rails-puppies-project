@@ -5,7 +5,7 @@ class PetPolicy < ApplicationPolicy
     end
   end
   def create?
-    is_user?
+    true
   end
 
   def update?

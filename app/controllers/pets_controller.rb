@@ -20,7 +20,7 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @pet.owner = @user
-    require 'pry'; byebug
+    authorize @pet
     if @pet.save
       redirect_to pet_path(@pet)
     else

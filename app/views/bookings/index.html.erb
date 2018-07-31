@@ -1,0 +1,7 @@
+<h1>My requests</h1>
+
+<% @bookings.each do |booking| %>
+  <h3><%= booking.pet.name %></h3>
+  <h4><%= booking.pet.owner.email %></h4>
+  <h5><%= booking.status %></h5>
+<% end %>

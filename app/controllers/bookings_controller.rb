@@ -5,15 +5,24 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def index
+    @bookings = policy_scope(Booking)
+  end
+
   def new
     @booking = Booking.new
+    authorize @booking
     @pet = Pet.find(params[:pet_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
-    if @pet.save
-      redirect_to pet_booking_path(@booking), notice: 'Booking made. Enjoy your pet.'
+    @booking.pet = Pet.find(params[:pet_id])
+    @booking.user = @user
+    @booking.status = "pending"
+    authorize @booking
+    if @booking.save
+      redirect_to pet_path(@booking.pet), notice: 'Booking made. Enjoy your pet.'
     else
       render :new
     end
@@ -24,7 +33,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to pet_booking_path(@booking), notice: 'Booking changed. Enjoy your pet.'
+      redirect_to pet_path(@booking.pet), notice: 'Booking changed. Enjoy your pet.'
     else
       render :edit
     end
@@ -35,6 +44,7 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def set_user

@@ -12,11 +12,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-      if @pet.save
-        redirect_to @booking
-      else
-        render :new
-      end
+    if @pet.save
+      redirect_to @booking
+    else
+      render :new
+    end
   end
 
   def edit

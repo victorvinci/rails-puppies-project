@@ -12,6 +12,8 @@ gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
 gem 'devise'
+#use Pundit for user authorisation
+gem "pundit"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

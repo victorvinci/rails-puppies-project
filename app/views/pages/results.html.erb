@@ -9,5 +9,7 @@
   <%= cl_image_tag result.photo, alt: "Here is the pic of your puppy friend" %>
   </div>
 <%= link_to "Meet this friend", pet_path(result), class: "inbox-sf-add-btn tip" %>
-<%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
+<% if current_user != result.owner %>
+  <%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
+<% end %>
 <% end %>

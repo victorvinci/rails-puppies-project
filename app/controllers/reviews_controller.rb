@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     # @review_owner = Review.new(review_params_owner)
     # @review_user = Review.new(review_params_user)
     if @can_perform_action && @review.save
-      redirect_to pet_booking_review_path(@review), notice: 'Review was successfully created.'
+      redirect_to new_pet_booking_review_path(@review), notice: 'Review was successfully created.'
     elsif can_create
       render :new
     else

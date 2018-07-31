@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Book.new
+    @booking = Booking.new
     @pet = Pet.find(params[:id])
   end
 
@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
     @user = current_user
   end
 
-  def pet_params
+  def booking_params
     params.require(:booking).permit(:booking_start, :booking_end, :status)
   end
 

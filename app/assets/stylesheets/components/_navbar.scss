@@ -23,6 +23,10 @@
   color: #FD8CD4;
 }
 
+.navbar-wagon-brand:hover {
+  text-decoration: none;
+  color: #FD8CD4;
+}
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
@@ -88,6 +92,7 @@
 .navbar-wagon-item .dropdown {
   color: white;
 }
+
  .open > .dropdown-menu {
   background-color: transparent;
   box-shadow: none;

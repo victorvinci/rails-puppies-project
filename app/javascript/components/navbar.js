@@ -25,4 +25,6 @@ function initUpdateNavbarOnScroll() {
     });
   }
 }
+
  export default initUpdateNavbarOnScroll;
+

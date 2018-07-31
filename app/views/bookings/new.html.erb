@@ -1,1 +1,28 @@
-<h1>TESTE</h1>
+<h1>New booking for <%= @pet %></h1>
+
+<%= simple_form_for [@pet, @booking] do |f| %>
+    <% if @booking.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @booking.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.input :booking_start %>
+    <%= f.input :booking_end %>
+    <%= f.button :submit, "Create", class: "btn btn-primary" %>
+  <% end %>
+
+
+<!--     t.datetime "booking_start"
+    t.datetime "booking_end"
+    t.string "status"
+    t.bigint "pets_id"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pets_id"], name: "index_bookings_on_pets_id"
+    t.index ["users_id"], name: "index_bookings_on_users_id" -->

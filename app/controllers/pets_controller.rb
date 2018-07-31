@@ -21,7 +21,7 @@ class PetsController < ApplicationController
     @pet.owner = @user
     require 'pry'; byebug
     if @pet.save
-      redirect_to @pet
+      redirect_to pet_path(@pet)
     else
       render :new
     end
@@ -33,7 +33,7 @@ class PetsController < ApplicationController
 
   def update
     if @pet.update(pet_params)
-      redirect_to @pet, notice: 'Pet was successfully updated.'
+      redirect_to pet_path(@pet), notice: 'Pet was successfully updated.'
     else
       render :edit
     end

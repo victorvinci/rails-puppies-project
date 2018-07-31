@@ -4,4 +4,5 @@
 
 <% if current_user != @pet.owner %>
   <%= link_to 'Book!', new_pet_booking_path(@pet) %>
+
 <% end %>

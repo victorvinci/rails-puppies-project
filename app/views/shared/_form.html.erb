@@ -10,9 +10,11 @@
 <%= form_tag results_path, method: :get do %>
   <%= text_field_tag :query, params[:query] %>
   <div class="btn-container">
-  <button class="button"> <%= submit_tag "Find a buddy", name: "Find your Pet" %>
+    <button class="button">
+      <%= submit_tag "Find a buddy", name: "Find your Pet" %>
+    </button>
 <% end %>
-</button>
+
 </div>
 </div>
 

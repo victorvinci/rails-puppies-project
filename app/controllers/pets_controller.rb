@@ -5,7 +5,7 @@ class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @pets = Pet.all
+    @pets = policy_scope(Pet) #Pet.all
   end
 
   def show
@@ -40,12 +40,8 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    if @pet.owner == current_user
-      @pet.destroy
-      redirect_to pets_path, notice: "Your bet has been put down :("
-    else
-      redirect_to pets_path, notice: "Only the owner can put down this good boy"
-    end
+    @pet.destroy
+    redirect_to pets_path, notice: "Your bet has been put down :("
   end
 
 
@@ -63,9 +59,5 @@ class PetsController < ApplicationController
     params.require(:pet).permit(:name, :species, :address, :size, :details, :photo, :photo_cache, :remove_photo)
   end
 
-  #Check run so that user can't spoof URLs
-  def owner?
-    @pet.owner == current_user
-  end
 
 end

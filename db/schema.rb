@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_214823) do
+ActiveRecord::Schema.define(version: 2018_07_31_183933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 2018_07_30_214823) do
     t.datetime "booking_start"
     t.datetime "booking_end"
     t.string "status"
-    t.bigint "pets_id"
-    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pets_id"], name: "index_bookings_on_pets_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.bigint "user_id"
+    t.bigint "pet_id"
+    t.index ["pet_id"], name: "index_bookings_on_pet_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2018_07_30_214823) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "pets", column: "pets_id"
-  add_foreign_key "bookings", "users", column: "users_id"
+  add_foreign_key "bookings", "pets"
+  add_foreign_key "bookings", "users"
   add_foreign_key "pets", "users"
   add_foreign_key "reviews", "bookings", column: "bookings_id"
 end

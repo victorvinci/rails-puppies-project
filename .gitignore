@@ -16,3 +16,4 @@ yarn-error.log
 .env*
 .env*
 db-layout.xml
+.env*

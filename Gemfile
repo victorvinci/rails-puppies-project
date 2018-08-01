@@ -14,9 +14,10 @@ gem 'redis'
 gem 'devise'
 gem 'jquery'
 gem 'pg_search'
-#use Pundit for user authorisation
+# Use Pundit for user authorisation
 gem "pundit"
-
+# Required for Geocoding functionality
+gem "geocoder"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
@@ -38,5 +39,4 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
   gem 'faker'
-  gem 'dotenv-rails'
 end

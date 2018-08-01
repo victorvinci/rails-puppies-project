@@ -1,7 +1,10 @@
-<div class="container">
-<h1>New booking for <%= @pet.name %></h1>
 
-<%= simple_form_for [@pet, @booking] do |f| %>
+<div>
+  <h1>New booking for <%= @pet.name %></h1>
+</div>
+
+<div class="container">
+  <%= simple_form_for [@pet, @booking] do |f| %>
     <% if @booking.errors.any? %>
       <div class="errors-container">
         <ul>
@@ -17,13 +20,3 @@
     <%= f.button :submit, "Create", class: "btn btn-primary" %>
   <% end %>
 </div>
-
-<!--     t.datetime "booking_start"
-    t.datetime "booking_end"
-    t.string "status"
-    t.bigint "pets_id"
-    t.bigint "users_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["pets_id"], name: "index_bookings_on_pets_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id" -->

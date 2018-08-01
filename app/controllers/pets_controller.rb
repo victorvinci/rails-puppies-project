@@ -10,14 +10,6 @@ class PetsController < ApplicationController
 
   def show
 
-    if @pet.lat.nil?
-      @marker = [
-      {
-        lat: 0,
-        lng: 0
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }]
-    else
       @marker = [
         {
           lat: @pet.latitude,

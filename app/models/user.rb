@@ -8,4 +8,5 @@ class User < ApplicationRecord
  # I think this has_many through was a case of overdesigning
  # I have commented it out to make bookings and pet views work properly
  # has_many :pets, through: :bookings
+  mount_uploader :photo, PhotoUploader
 end

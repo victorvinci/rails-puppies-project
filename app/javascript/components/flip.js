@@ -1,5 +1,5 @@
 function flipCard() {
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll(".cardo");
 
   const flip = (event) => {
     event.currentTarget.classList.toggle('flipped');

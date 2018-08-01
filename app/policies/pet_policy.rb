@@ -1,9 +1,10 @@
 class PetPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(owner: user)
     end
   end
+
   def create?
     true
   end

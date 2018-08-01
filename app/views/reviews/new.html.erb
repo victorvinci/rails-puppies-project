@@ -1,0 +1,16 @@
+<h1>This is a review for <%= @booking.pet.name %></h1>
+
+<%= simple_form_for [@booking, @review] do |f| %>
+  <% if @review.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :pet_rating%>
+  <%= f.input :pet_content %>
+  <%= f.button :submit, "Create", class: "btn btn-primary" %>
+<% end %>

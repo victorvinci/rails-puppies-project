@@ -1,6 +1,21 @@
-<form class="form-menu">
+<!-- <form class="form-menu">
     <input type="search" id="searchbar" placeholder="Find your buddy">
     <div class="btn-container">
       <a href="/pets" class="button"><p>search</p></a>
     </div>
-</form>
+</form> -->
+
+
+<div class="form-menu" id="searchbar">
+<%= form_tag results_path, method: :get do %>
+  <%= text_field_tag :query, params[:query] %>
+  <div class="btn-container">
+    <button class="button">
+      <%= submit_tag "Find a buddy", name: "Find your Pet" %>
+    </button>
+<% end %>
+
+</div>
+</div>
+
+

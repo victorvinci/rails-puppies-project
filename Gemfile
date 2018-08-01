@@ -13,7 +13,7 @@ gem 'rails', '5.2.0'
 gem 'redis'
 gem 'devise'
 gem 'jquery'
-
+gem 'pg_search'
 #use Pundit for user authorisation
 gem "pundit"
 

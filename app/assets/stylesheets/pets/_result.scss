@@ -3,12 +3,14 @@
 }
 
 body {
+  overflow-x: hidden;
   margin: 0;
   background: linear-gradient(transparent, rgba( 110, 110, 110, .3)), linear-gradient(100deg, rgba(250, 214, 195, .8) 30%, #B0EAE8 120%);
 }
 
 main {
   display: grid;
+  overflow: auto;
   grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
   height: 100vh;
   position: relative;
@@ -16,13 +18,13 @@ main {
   -ms-perspective: 800px;
   perspective: 800px;
   border-radius: 4px;
-  grid-template-rows: repeat(auto-fit, minmax(auto, 1fr));
-  margin: 10px auto;
+  grid-template-rows: repeat(auto-fill, minmax(250px, 2fr));
+  margin: 0 5% 5%;
 }
 
 .card {
   width: 94%;
-  height: 85%;
+  height: 80%;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -62,6 +64,7 @@ main {
 }
 
 .container-h1 {
-  margin: 10% 0 0 45px;
-  padding-top: 45px;
+  margin: 5% auto auto auto;
+  padding: 5% 0;
+  text-align: center;
 }

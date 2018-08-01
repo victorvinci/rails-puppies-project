@@ -9,12 +9,12 @@ class PetsController < ApplicationController
   end
 
   def show
-    @marker =
+    @marker = [
       {
         lat: @pet.latitude,
-        lng: @pet.longitude#,
+        lng: @pet.longitude
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
+      }]
   end
 
   def new

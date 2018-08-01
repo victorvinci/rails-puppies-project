@@ -50,7 +50,10 @@ class PetsController < ApplicationController
     redirect_to pets_path, notice: "Your bet has been put down :("
   end
 
-
+  def show_bookings
+    @bookings = Pet.find(params[:pet_id]).bookings
+    authorize @bookings
+  end
 
 
   private

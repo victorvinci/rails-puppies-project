@@ -1,11 +1,12 @@
 <div class="container-h1">
   <h1>These are the results for <strong><%= params[:query] %></strong></h1>
 </div>
+
 <main role="main">
   <% @results.each do |result|%>
   <% if current_user != result.owner %>
 
-      <div class="card">
+      <div class="cardo">
 
         <div class="front">
           <h3> Your new friend's name is <strong><%= result.name %> </strong></h3>
@@ -16,10 +17,9 @@
           <h5> <strong><%= result.name %> </strong> lives in <strong> <%= result.address %> </strong> </h5>
           <%= link_to "Meet this friend", pet_path(result), class: "inbox-sf-add-btn tip" %>
           <%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
-      </div>
+        </div>
 
       </div>
-
     <% end %>
   <% end %>
 </main>

@@ -13,5 +13,8 @@ class Pet < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   pg_search_scope :main_search, against: %i(details size species)
 end

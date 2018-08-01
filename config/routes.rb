@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   put 'bookings/:booking_id/accept_booking', to:'bookings#accept_booking', as: :accept_booking
+  put 'pets/:pet_id/show_bookings', to:'pets#show_bookings', as: :show_bookings
 
   resources :bookings, only: :index do
     resources :reviews, only: %i[show new create]

@@ -39,7 +39,7 @@ class PetsController < ApplicationController
 
   def update
     if @pet.update(pet_params)
-      redirect_to pet_path(@pet), notice: 'Pet was successfully updated.'
+      redirect_to pets_path, notice: 'Pet was successfully updated.'
     else
       render :edit
     end
@@ -50,7 +50,10 @@ class PetsController < ApplicationController
     redirect_to pets_path, notice: "Your bet has been put down :("
   end
 
-
+  def show_bookings
+    @bookings = Pet.find(params[:pet_id]).bookings
+    authorize @bookings
+  end
 
 
   private

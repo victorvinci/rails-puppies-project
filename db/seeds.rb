@@ -1,11 +1,13 @@
 # Destroy all previous db entries
+Review.destroy_all
+Booking.destroy_all
 Pet.destroy_all
 User.destroy_all
 
 5.times do
   user = User.new(
   email: Faker::Internet.email,
-  password: Faker::Seinfeld.character,
+  password: 'abc123',
 )
 user.save!
 pet = Pet.new(

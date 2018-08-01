@@ -1,5 +1,5 @@
 <% if @bookings.any? {|booking| booking.status == 'pending'} %>
-
+<div class="container">
   <h1>Pending Bookings</h1>
 
   <% @bookings.each do |booking| %>
@@ -10,20 +10,21 @@
       <%= link_to 'Accept booking!', accept_booking_path(booking), method: :get %>
     <% end %>
   <% end %>
-
+</div>
 <% end %>
 
 <% if @bookings.any? {|booking| booking.status != 'pending'} %>
+  <div class="container">
   <h2>Past Bookings!</h2>
   <% @bookings.each do |booking| %>
     <% if booking.status != 'pending' %>
       <h3><%= booking.user.email %></h3>
       <h4><%= booking.booking_start  %></h4>
       <h5><%= booking.booking_end %></h5>
-      <h6><%= booking.status. %></h6>
+      <h6><%= booking.status %></h6>
     <% end %>
   <% end %>
-
+</div>
 <% end %>
 
 

@@ -5,7 +5,6 @@
 <main role="main">
   <% @results.each do |result|%>
   <% if current_user != result.owner %>
-
       <div class="cardo">
 
         <div class="front">
@@ -17,10 +16,9 @@
           <h5> <strong><%= result.name %> </strong> lives in <strong> <%= result.address %> </strong> </h5>
           <%= link_to "Meet this friend", pet_path(result), class: "inbox-sf-add-btn tip" %>
           <%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
-      </div>
+        </div>
 
       </div>
-
     <% end %>
   <% end %>
   </div>

@@ -1,19 +1,25 @@
-
 <div class="container-h1">
   <h1>These are the results for <strong><%= params[:query] %></strong></h1>
 </div>
 <main role="main">
   <% @results.each do |result|%>
-    <% if current_user != result.owner %>
+  <% if current_user != result.owner %>
+
       <div class="card">
+
         <div class="front">
           <h3> Your new friend's name is <strong><%= result.name %> </strong></h3>
-          <%= cl_image_tag result.photo, alt: "Here is the pic of your puppy friend" %>
         </div>
+
         <div class="back">
-          <h4> <strong><%= result.name %> </strong> is a <strong> <%= result.size %> <%= result.species %> </strong> <h4>
-          <h5> <strong><%= result.name %> </strong> lives in <strong> <%= result.address %> </strong> <h5>
+          <h4> <strong><%= result.name %> </strong> is a <strong> <%= result.size %> <%= result.species %> </strong> </h4>
+          <h5> <strong><%= result.name %> </strong> lives in <strong> <%= result.address %> </strong> </h5>
           <%= link_to "Meet this friend", pet_path(result), class: "inbox-sf-add-btn tip" %>
           <%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
       </div>
+
+      </div>
+
+    <% end %>
+  <% end %>
 </main>

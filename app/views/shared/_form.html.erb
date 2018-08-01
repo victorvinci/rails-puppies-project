@@ -6,16 +6,12 @@
 </form> -->
 
 
-<div class="form-menu" id="searchbar">
-<%= form_tag results_path, method: :get do %>
-  <%= text_field_tag :query, params[:query] %>
-  <div class="btn-container">
-    <button class="button">
-      <%= submit_tag "Find a buddy", name: "Find your Pet" %>
-    </button>
-<% end %>
 
-</div>
-</div>
+  <%= form_tag results_path, class: "form-menu", method: :get do%>
+  <%= text_field_tag :query, params[:query], id: "searchbar", placeholder: "Describe the pet you want to be friends with"%>
+  <%= submit_tag "Find a buddy", name: "Find your Pet", class: "button-tag"%>
+  <% end %>
+
+
 
 

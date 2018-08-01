@@ -1,14 +1,22 @@
-<h1><%= @pet.name %></h1>
-<h2><%= @pet.details %></h2>
-<%= cl_image_tag @pet.photo, width: 240 %>
+<div class="container">
+  <h1><%= @pet.name %></h1>
 
-<% if current_user != @pet.owner %>
-  <%= link_to 'Book!', new_pet_booking_path(@pet) %>
-<% end %>
+</div>
 
-<div
+<div class="container">
+  <div class="row">
+  <div id= "test">
+    <%= cl_image_tag @pet.photo, width: 240 %>
+    <h2><%= @pet.details %></h2>
+    <% if current_user != @pet.owner %>
+    <%= link_to 'Book!', new_pet_booking_path(@pet) %>
+    <% end %>
+  </div>
+  <div
   id="map"
-  style="width: 100%;
-  height: 600px;"
+  style="width: 50%;
+  height: 300px;"
   data-markers="<%= @marker.to_json %>"
-></div>
+  ></div>
+</div>
+</div>

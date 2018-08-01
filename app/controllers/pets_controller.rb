@@ -5,9 +5,16 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet)
+    # @flats = Flat.where.not(latitude: nil, longitude: nil)
   end
 
   def show
+    @marker =
+      {
+        lat: @pet.latitude,
+        lng: @pet.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
   end
 
   def new

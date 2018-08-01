@@ -21,6 +21,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def show_bookings?
+    true
+  end
+
   private
   def is_user?
     record.user_id == user.id

@@ -3,64 +3,63 @@
 }
 
 body {
-  overflow-x: hidden;
   margin: 0;
   background: #fff/* linear-gradient(transparent, rgba( 110, 110, 110, .3)), linear-gradient(100deg, rgba(250, 214, 195, .8) 30%, #B0EAE8 120%); */
 }
 
 main {
   display: grid;
-  grid-gap: 1%;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 2fr));
+  grid-auto-rows: minmax(250px, auto);
   overflow: auto;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
-  height: 100vh;
   position: relative;
-  -webkit-perspective: 800px;
-  -ms-perspective: 800px;
   perspective: 800px;
   border-radius: 4px;
-  grid-template-rows: auto;
-  margin: 0 5% 5%;
+  grid-gap: 1%;
+  margin: 1% 1% 1% 1%;
+
+  // grid-template-rows: auto;
+  // grid-template-columns: repeat(5, 3fr);
 }
 
-.card {
+.cardo {
   width: 100%;
-  height: 15em;
-  -webkit-transform-style: preserve-3d;
+  height: 30em;
   transform-style: preserve-3d;
-  transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border-radius: 6px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   margin: 20px auto;
+  max-width: 600px;
 }
-.card div {
+.cardo div {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 6px;
   background: #fff;
   display: -ms-flexbox;
   display: box;
-  display: flex;
-  -o-box-pack: center;
+  display: grid;
   justify-content: center;
-  -o-box-align: center;
   align-items: center;
-  font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
   color: #47525d;
 }
-.card .back {
-  -webkit-transform: rotateY(180deg);
+
+.cardo .front {
+  background: url("https://source.unsplash.com/400x400/?pets");
+  display: block;
+  background-size: cover;
+    object-fit: cover;
+
+}
+.cardo .back {
   transform: rotateY(180deg);
 }
-.card.flipped {
-  -webkit-transform: rotateY(180deg);
+.cardo.flipped {
   transform: rotateY(180deg);
 }
 

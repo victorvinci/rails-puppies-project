@@ -7,3 +7,9 @@
     float:left;
     display:inline-block;
 }
+
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

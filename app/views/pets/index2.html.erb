@@ -2,14 +2,21 @@
 
 <%= link_to 'New', new_pet_path %>
 <% @pets.each do |pet| %>
-  <h2><%= pet.name %></h2>
-  <h3><%= pet.address %></h3>
-  <%= link_to 'Show', pet_path(pet) %>
-  <% if user_signed_in? && policy(pet).edit? %>
+  <h4><%= pet.name %></h4>
+  <h5><%= pet.address %></h5>
+  <% if policy(pet).edit? %>
     <%= link_to 'Edit', edit_pet_path(pet) %>
   <% end %>
-  <% if user_signed_in? && policy(pet).destroy? %>
+  <% if policy(pet).destroy? %>
     <%= link_to 'Delete', pet_path(pet), method: :delete%>
+  <% end %>
+  <% pet.bookings.each do |booking| %>
+    <h6><%= booking.status %></h6>
+    <p><%= booking.user.email  %>|| <%= booking.booking_start %> || <%= booking.booking_end %></p>
+    <% if booking.status == 'pending' %>
+      <%= link_to 'Approve!', accept_booking_path(booking), method: :put %>
+      <%= booking.pet.user_id %>
+    <% end %>
   <% end %>
 <% end %>
 </div>

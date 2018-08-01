@@ -2,8 +2,8 @@
   justify-content: center;
   grid-row: 3;
   display: flex;
-  height: 25%;
-  width: 75%;
+  height: 40%;
+  width: 80%;
 }
 
 .btn-container {
@@ -19,7 +19,7 @@
   padding: 7px;
 }
 
-.button {
+.button-tag {
   border: 0.5px solid #f7f7f7;
   text-align: center;
   text-transform: uppercase;
@@ -53,10 +53,13 @@
 }
 
 #searchbar {
-  width: 55%;
+  width: 100%;
   box-shadow: 0px 0px 10px #FD8CD4;
   box-sizing: border-box;
   padding: 4px 5px;
   margin-right: 10px;
 }
 
+.separator {
+   height: 15px;
+}

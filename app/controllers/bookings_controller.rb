@@ -39,6 +39,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept_booking
+    @booking = Booking.find(params[:booking_id])
+    authorize @booking
+    @booking.status = 'accepted'
+    @booking.save
+    redirect_to pets_path, notice: 'Accepted!'
+  end
+
 
   private
 

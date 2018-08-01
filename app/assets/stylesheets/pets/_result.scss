@@ -10,6 +10,7 @@ body {
 
 main {
   display: grid;
+  grid-gap: 1%;
   overflow: auto;
   grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
   height: 100vh;
@@ -18,13 +19,13 @@ main {
   -ms-perspective: 800px;
   perspective: 800px;
   border-radius: 4px;
-  grid-template-rows: repeat(auto-fill, minmax(250px, 2fr));
+  grid-template-rows: auto;
   margin: 0 5% 5%;
 }
 
 .card {
-  width: 94%;
-  height: 80%;
+  width: 100%;
+  height: 15em;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);

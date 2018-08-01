@@ -1,22 +1,25 @@
 <div class="container">
-
-<%= link_to 'New', new_pet_path %>
-<% @pets.each do |pet| %>
-  <h4><%= pet.name %></h4>
-  <h5><%= pet.address %></h5>
-  <% if policy(pet).edit? %>
-    <%= link_to 'Edit', edit_pet_path(pet) %>
-  <% end %>
-  <% if policy(pet).destroy? %>
-    <%= link_to 'Delete', pet_path(pet), method: :delete%>
-  <% end %>
-  <% pet.bookings.each do |booking| %>
-    <h6><%= booking.status %></h6>
-    <p><%= booking.user.email  %>|| <%= booking.booking_start %> || <%= booking.booking_end %></p>
-    <% if booking.status == 'pending' %>
-      <%= link_to 'Approve!', accept_booking_path(booking), method: :put %>
-      <%= booking.pet.user_id %>
-    <% end %>
-  <% end %>
-<% end %>
+  <h1>My Pets</h1>
+  <%= link_to 'New', new_pet_path %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <% @pets.each do |pet| %>
+        <div class="cardo" style="max-width: 300px;max-height: 300px">
+          <div class="front">
+            <h4><%= pet.name %></h4>
+            <h5><%= pet.address %></h5>
+            <% if policy(pet).edit? %>
+            <%= link_to 'Edit', edit_pet_path(pet) %>
+            <% end %>
+            <% if policy(pet).destroy? %>
+            <%= link_to 'Delete', pet_path(pet), method: :delete%>
+            <% end %>
+            <% if pet.bookings.any? {|booking| booking.status == 'pending'} %>
+              <h6>Pending bookings</h6>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

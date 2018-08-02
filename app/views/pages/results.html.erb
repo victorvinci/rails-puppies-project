@@ -2,7 +2,7 @@
   <h1>These are the results for <strong><%= params[:query] %></strong></h1>
 </div>
 
-<main role="main">
+<main role="main" class="main-container">
   <% @results.each do |result|%>
   <% if current_user != result.owner %>
 

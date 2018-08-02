@@ -21,6 +21,14 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def reject_booking?
+    true
+  end
+
+  def cancel_booking?
+    is_user?
+  end
+
   def show_bookings?
     true
   end

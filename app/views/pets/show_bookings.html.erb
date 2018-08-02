@@ -8,6 +8,7 @@
       <h4><%= booking.booking_start  %></h4>
       <h5><%= booking.booking_end %></h5>
       <%= link_to 'Accept booking!', accept_booking_path(booking), method: :put %>
+      <%= link_to 'Reject booking!', reject_booking_path(booking), method: :put %>
     <% end %>
   <% end %>
 </div>

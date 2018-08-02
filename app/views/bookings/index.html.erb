@@ -3,13 +3,17 @@
 <% @bookings.each do |booking| %>
   <h3><%= booking.pet.name %></h3>
   <h4><%= booking.pet.owner.email %></h4>
-  <h5><%= booking.status %></h5>
+  <h5><%= booking.status.capitalize %></h5>
 
 
-  <% if booking.review.nil? %>
+  <% if booking.review.nil? && booking.status == 'accepted'%>
     <%= link_to 'Review!', new_booking_review_path( booking) %>
-   <% else %>
+   <% elsif !booking.review.nil? %>
     <%= booking.review.pet_rating %>
     <%= booking.review.pet_content %>
+  <% end %>
+
+  <% if booking.status == 'pending' %>
+    <%= link_to 'Cancel booking!', cancel_booking_path(booking), method: :put %>
   <% end %>
 <% end %>

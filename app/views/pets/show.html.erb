@@ -17,8 +17,6 @@
         <p>Previous bookings</p>
         <h4><%= @pet.bookings.select { |booking| !booking.review.nil? }.count %></h4>
         <p>Reviews</p>
-        <h4><%= @pet.bookings.select { |booking| booking.status == 'accepted'}.count %></h4>
-        <p>Previous bookings</p>
       </div>
     </div>
     <div class="map">

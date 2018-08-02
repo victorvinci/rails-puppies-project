@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.status = 'accepted'
     @booking.save
-    redirect_to pets_path, notice: 'Accepted!'
+    redirect_to show_bookings_path(@booking.pet), method: :put, notice: 'Accepted!'
   end
 
 

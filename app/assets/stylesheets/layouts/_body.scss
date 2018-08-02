@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Overlock');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Fira Sans", "Helvetica", "sans-serif";
+  margin: 0;
+  background: #fff;
 
   h1, h2, h3, h4, h5, h6, p {
     font-family: "Overlock", "Helvetica", "sans-serif";

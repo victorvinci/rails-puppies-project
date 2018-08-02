@@ -21,7 +21,9 @@
 
 .button-tag {
   border: 0.5px solid #f7f7f7;
+  box-shadow: 0px 0px 10px white;
   text-align: center;
+  font-size: 16px;
   text-transform: uppercase;
   overflow: hidden;
   transition: .8s;
@@ -54,7 +56,7 @@
 
 #searchbar {
   width: 100%;
-  box-shadow: 0px 0px 10px #FD8CD4;
+  box-shadow: 0px 0px 10px white;
   box-sizing: border-box;
   padding: 4px 5px;
   margin-right: 10px;

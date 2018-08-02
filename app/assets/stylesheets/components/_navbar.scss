@@ -1,6 +1,9 @@
   /* Main navbar */
 .navbar-wagon {
   background-color: rgba(0,0,0,0);
+  /* **NOTE** if this height value is changed
+  the spacer height value also needs to be changed.
+  The spacer stops the header from overlapping other content */
   height: 70px;
   padding: 0px 30px;
   display: flex;
@@ -100,3 +103,11 @@
   background: linear-gradient(rgba(255, 255, 255, 0.2) -8%, black 250%);
   box-shadow: none;
 }
+
+/* spacer so that other content gets pushed down under the div */
+.spacer {
+    width: 100%;
+    height: 70px;
+}
+
+

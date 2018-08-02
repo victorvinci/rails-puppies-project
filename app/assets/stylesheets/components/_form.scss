@@ -1,0 +1,39 @@
+.form-wrapper {
+  padding: 50px 300px;
+  background-color: #F7F7F7;
+
+  h2 {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+
+.form-container {
+  display: flex;
+  align-items: space-around;
+  justify-content: center;
+
+}
+
+.simple_form .form-control {
+  border-radius: 6px;
+}
+
+.form-row {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 30px 20px;
+  border-left: 0px solid black;
+  transition: .3s ease border-left;
+}
+
+abbr {
+  text-decoration: none;
+  border-bottom: none !important;
+}

@@ -9,14 +9,17 @@
       <div class="cardo">
 
         <div class="front">
-          <h3> Your new friend's name is <strong><%= result.name %> </strong></h3>
+          <div class="pet-info-front">
+            <h3> Call me: <strong><%= result.name %> </strong>, a <em> <%= result.size %> <%= result.species %> </em></h3>
+          </div>
         </div>
 
         <div class="back">
-          <h4> <strong><%= result.name %> </strong> is a <strong> <%= result.size %> <%= result.species %> </strong> </h4>
-          <h5> <strong><%= result.name %> </strong> lives in <strong> <%= result.address %> </strong> </h5>
+          <div class="pet-info-back">
+          <h5> I live at <strong> <%= result.address %> </strong> </h5>
           <%= link_to "Meet this friend", pet_path(result), class: "inbox-sf-add-btn tip" %>
           <%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
+        </div>
         </div>
 
       </div>

@@ -1,5 +1,6 @@
 // this file name "cardo" is just to avoid conflicts with bootstrap
 .cardo {
+  position: relative;
   width: 100%;
   height: 100%;
   max-width: 100rem;
@@ -13,26 +14,42 @@
   margin: 20px auto;
 }
 .cardo div {
-  position: absolute;
   width: 100%;
-  height: 100%;
   backface-visibility: hidden;
   border-radius: 6px;
-  background: #fff;
-  display: -ms-flexbox;
-  display: box;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  color: #47525d;
 }
 
-.cardo .front {
-  background: url("https://source.unsplash.com/400x400/?pets");
+.front {
+  background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) 0%, rgba(66, 66, 66, 0.6) 34%), url("https://source.unsplash.com/400x400/?pets");
+  background-position: center;
+  background-size: cover !important;
   display: block;
-  background-size: cover;
-  object-fit: cover;
+  height: 100%;
+
 }
+
+.pet-info-front {
+  position: absolute;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  margin: 385px 0 0 1%;
+  padding: 2%;
+}
+
+.pet-info-front h3 {
+  color: white;
+  font-size: 3rem;
+}
+
+.back {
+  display: block;
+}
+
+.pet-info-back {
+  position: absolute;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  padding: 2%;
+}
+
 .cardo .back {
   transform: rotateY(180deg);
 }

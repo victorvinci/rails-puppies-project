@@ -1,3 +1,9 @@
+// .container-general {
+
+//   background: linear-gradient(to top, #ff6e7f, #bfe9ff);
+//   background-position: center;
+// }
+
 .container-h1 {
   margin: 1% auto auto auto;
   padding: 5% 0;
@@ -5,15 +11,14 @@
 }
 
 .main-container {
-  display: grid;
+    display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 48%));
   grid-auto-rows: minmax(550px, 100%);
   overflow: auto;
-  position: relative;
   -webkit-perspective: 800px;
   perspective: 800px;
   border-radius: 4px;
   grid-gap: 1em;
   margin-left: 2.8%;
-  height: 95vh;
+  height: 80vh;
 }

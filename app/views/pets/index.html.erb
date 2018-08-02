@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container-h1">
   <h1>My Pets</h1>
   <%= link_to 'New', new_pet_path %>
-  <div class="container">
+  <div class="main-container">
     <div class="row justify-content-center">
       <% @pets.each do |pet| %>
         <% if pet.photo.present? %>
@@ -31,4 +31,5 @@
       <% end %>
     </div>
   </div>
+</div>
 </div>

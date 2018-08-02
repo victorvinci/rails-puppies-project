@@ -11,7 +11,7 @@
 }
 
 .main-container {
-    display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 48%));
   grid-auto-rows: minmax(550px, 100%);
   overflow: auto;

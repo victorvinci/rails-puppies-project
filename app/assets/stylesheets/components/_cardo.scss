@@ -13,10 +13,9 @@
   cursor: pointer;
   margin: 20px auto;
 }
+
 .cardo div {
-  width: 100%;
   backface-visibility: hidden;
-  border-radius: 6px;
 }
 
 .front {
@@ -25,36 +24,76 @@
   background-size: cover !important;
   display: block;
   height: 100%;
-
+  width: 100%;
+  border-radius: 6px;
 }
 
 .pet-info-front {
   position: absolute;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-  margin: 385px 0 0 1%;
-  padding: 2%;
+  width: 100%;
 }
 
 .pet-info-front h3 {
   color: white;
   font-size: 3rem;
+  margin: 385px 0 0 1%;
+  padding: 2%;
 }
 
 .back {
   display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
 }
 
 .pet-info-back {
   position: absolute;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  display: grid;
+  margin: -518px 0 0 0;
+}
+
+.pet-info-back h3 {
+  color: black;
+  font-size: 40px;
   padding: 2%;
+  text-align: center;
+}
+
+.pet-info-back p {
+  color: black;
+  font-size: 3rem;
+  margin: 0;
+  padding: 1%;
+  text-align: center;
+}
+
+.pet-adress {
+  margin-top: 1%;
+  padding: 8px;
+}
+
+.pet-info-back h4 {
+  color: black;
+  font-size: 3.1rem;
+  text-align: center;
+}
+
+.cardos-link {
+  display: grid;
+  padding: 1%;
+  font-size: 1.5rem;
+  justify-content: space-around;
+  margin: 1% 0 0 0;
 }
 
 .cardo .back {
   transform: rotateY(180deg);
 }
+
 .cardo.flipped {
   transform: rotateY(180deg);
 }
-
-

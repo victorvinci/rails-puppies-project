@@ -1,28 +1,34 @@
 <div class="container-h1">
   <h1>These are the results for <strong><%= params[:query] %></strong></h1>
 </div>
-
 <main role="main" class="main-container">
   <% @results.each do |result|%>
-  <% if current_user != result.owner %>
-
+    <% if current_user != result.owner %>
       <div class="cardo">
-
         <div class="front">
           <div class="pet-info-front">
             <h3> Call me: <strong><%= result.name %> </strong>, a <em> <%= result.size %> <%= result.species %> </em></h3>
           </div>
         </div>
-
         <div class="back">
           <div class="pet-info-back">
-          <h5> I live at <strong> <%= result.address %> </strong> </h5>
-          <%= link_to "Meet this friend", pet_path(result), class: "inbox-sf-add-btn tip" %>
-          <%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
+            <h3><u>What humans say about me:</u></h3>
+            <p>
+              <q>
+                <%= result.details %>
+              </q>
+            </p>
+            <div class="pet-adress">
+              <h4> <strong>You can pet me at:</strong></h4>
+              <p> <mark><em> <%= result.address %> </em></mark></p>
+            </div>
+            <div class="cardos-link">
+              <%= link_to "Meet this friend", pet_path(result), class: "inbox-sf-add-btn tip" %>
+                <%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
+            </div>
+          </div>
         </div>
-        </div>
-
       </div>
-    <% end %>
-  <% end %>
+      <% end %>
+        <% end %>
 </main>

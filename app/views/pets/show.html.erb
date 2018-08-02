@@ -1,21 +1,43 @@
-<div class="container" style="position: relative;">
-  <h1><%= @pet.name %></h1>
-</div>
-
 <div class="container">
-  <div class="row">
-  <div id= "pet-info">
-    <%= cl_image_tag @pet.photo, width: 240 %>
-    <h2><%= @pet.details %></h2>
-    <% if current_user != @pet.owner %>
-    <%= link_to 'Book!', new_pet_booking_path(@pet) %>
-    <% end %>
+  <div class="profile text-center">
+    <div class="main">
+      <div class="main-content">
+        <%= cl_image_tag @pet.photo, id: 'pet-image' %>
+        <h2><%= @pet.name %></h2>
+        <p><%= @pet.species %></p>
+        <% if current_user != @pet.owner %>
+          <%= link_to 'Book!', new_pet_booking_path(@pet), class: "btn btn-primary btn-lg" %>
+        <% end %>
+        <h4><%= @pet.bookings.select { |booking| booking.status == 'accepted'}.count %></h4>
+        <p>Previous bookings</p>
+        <h4><%= @pet.bookings.select { |booking| !booking.review.nil? }.count %></h4>
+        <p>Reviews</p>
+        <h4><%= @pet.bookings.select { |booking| booking.status == 'accepted'}.count %></h4>
+        <p>Previous bookings</p>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-content">
+        <h3>Details:</h3>
+        <h4><%= @pet.bookings.select { |booking| booking.status == 'accepted'}.count %></h4>
+        <p>Previous bookings</p>
+        <h4><%= @pet.bookings.select { |booking| !booking.review.nil? }.count %></h4>
+        <p>Reviews</p>
+        <h4><%= @pet.bookings.select { |booking| booking.status == 'accepted'}.count %></h4>
+        <p>Previous bookings</p>
+      </div>
+    </div>
+    <div class="map">
+      <div id="map" style="width: 100%; height: 100%;"
+      data-markers="<%= @marker.to_json %>"
+      ></div>
+    </div>
+    <div class="description">
+      <div class="description-content">
+        <h3>All about <%= @pet.name %>:</h3>
+        <p><%= @pet.details %></p>
+      </div>
+    </div>
   </div>
-  <div
-  id="map"
-  style="width: 45%;
-  height: 300px;"
-  data-markers="<%= @marker.to_json %>"
-  ></div>
 </div>
 </div>

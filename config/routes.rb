@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/home-test', to: 'pages#home-test'
   get '/results', to: "pages#results"
+  # Location search route
+  get '/location_results', to: "pages#location_results"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pets do
     resources :bookings, except: %i[index destroy] do

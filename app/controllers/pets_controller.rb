@@ -5,7 +5,6 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet)
-    # @flats = Flat.where.not(latitude: nil, longitude: nil)
   end
 
   def show
@@ -55,7 +54,6 @@ class PetsController < ApplicationController
     @bookings = Pet.find(params[:pet_id]).bookings
     authorize @bookings
   end
-
 
   private
 

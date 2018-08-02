@@ -1,10 +1,16 @@
 #map {
     float:right;
     display:inline-block;
+    border: 1px solid #d1d5da;
+    border-radius: 4px;
 }
 
-#test {
+#pet-info {
     float:left;
     display:inline-block;
+    border: 1px solid #d1d5da;
+    border-radius: 4px;
+    width: 50%;
+    min-height: 300px;
 }
 

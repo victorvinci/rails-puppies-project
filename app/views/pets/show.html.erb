@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row">
-  <div id= "test">
+  <div id= "pet-info">
     <%= cl_image_tag @pet.photo, width: 240 %>
     <h2><%= @pet.details %></h2>
     <% if current_user != @pet.owner %>
@@ -13,7 +13,7 @@
   </div>
   <div
   id="map"
-  style="width: 50%;
+  style="width: 45%;
   height: 300px;"
   data-markers="<%= @marker.to_json %>"
   ></div>

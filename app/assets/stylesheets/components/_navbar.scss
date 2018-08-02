@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: 0.9s background-color ease;
+  transition: 0.4s background-color ease;
   .navbar-wagon-right a {
     color: white;
   }
@@ -21,7 +21,7 @@
 .navbar-wagon-white {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background-color: white;
-  transition: 0.9s background-color ease;
+  transition: 0.4s background-color ease;
   .fa-paw {
     color: #665e5e !important;
   }

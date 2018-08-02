@@ -1,29 +1,44 @@
-<body style="padding-top: 0;">
+<div class="wrapper" style="margin: -70px -70px 0px -70px;">
   <header class="home-banner">
-  <h1>Pets without the stress</h1>
-  <%= render 'shared/form' %>
-</header>
-
-
-  <div class="container-home">
-    <h2> Here how your pet love story begins...</h2>
-    <div class="text-center padded features">
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= image_tag "findapet.png", class: "icon_home"%>
+    <h1>Pets without the stress</h1>
+    <%= render 'shared/form' %>
+  </header>
+</div>
+<div class="container new">
+  <h2> Here how your pet love story begins...</h2>
+  <div class="text-center padded features">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= image_tag "findapet.png", class: "icon_home"%>
         <h3>Find a pet</h3>
         <p>Pets can be great friends</p>
-      </div>
-      <div class="col-xs-12 col-sm-6">
-       <%= image_tag "dog1.jpeg", class: "icon_home"%>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= image_tag "dog1.jpeg", class: "icon_home"%>
         <h3>Book a moment with your new friend</h3>
         <p>Hang out with the vv good bois and girles</p>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= image_tag "saianodate.jpeg", class: "icon_home"%>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= image_tag "saianodate.jpeg", class: "icon_home"%>
         <h3>Go on a date</h3>
         <p>Be happy</p>
-      </div>
     </div>
   </div>
 </div>
-</body>
+<div class="container new2">
+  <h2> See our best choices for you!! </h2>
+  <div class="row">
+    <% @pets.sample(3).each do |pet| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <%=link_to pet_path(pet) do%>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(pet.photo) %>');">
+        </div>
+        <div class="card-description">
+          <p> I'm <strong> <%= pet.name.capitalize %> </strong> <p>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+  </div>
+</div>
+
+

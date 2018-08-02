@@ -25,7 +25,7 @@ crop_free
     <%= f.input :details, label: '<i class="material-icons">
 sentiment_satisfied_alt
 </i> Details'.html_safe, placeholder: "V v good boy/girl. Deserves lots of pats" %>
-<%= f.input :photo, as: :file, label: '<i class="material-icons">
+<%= f.input :photo, as: :file, label_html: { class: 'col-sm-3 col-form-label text optional' }, input_html: { class: 'col-sm-9' }, label: '<i class="material-icons">
 add_a_photo
 </i> Add a photo'.html_safe %>
     <%= f.input :photo_cache, as: :hidden %>

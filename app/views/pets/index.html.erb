@@ -6,15 +6,9 @@
 
   <div class="main-container">
     <% @pets.each do |pet| %>
-      <% if pet.photo.present? %>
-
-        <div class="cardo" style="max-width: 300px;max-height: 300px;background: white">
-        </div>
-
-      <% else %>
 
         <div class="cardo">
-          <div class="front">
+            <div class="front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(pet.photo) unless pet.photo.blank? %>');">
             <div class="pet-info-front">
               <h3><strong><%= pet.name %></strong>, a <em> <%= pet.size %> <%= pet.species %> </em></h3>
             </div>
@@ -57,5 +51,4 @@
         </div>
         </div>
       <% end %>
-    <% end %>
   </div>

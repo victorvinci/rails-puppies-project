@@ -1,35 +1,61 @@
 <div class="container-h1">
   <h1>My Pets</h1>
   <%= link_to 'New', new_pet_path %>
+</div>
+
+
   <div class="main-container">
-    <div class="row justify-content-center">
-      <% @pets.each do |pet| %>
-        <% if pet.photo.present? %>
-          <div class="cardo" style="max-width: 300px;max-height: 300px;background: white">
-        <% else %>
-          <div class="cardo">
-        <% end %>
+    <% @pets.each do |pet| %>
+      <% if pet.photo.present? %>
+
+        <div class="cardo" style="max-width: 300px;max-height: 300px;background: white">
+        </div>
+
+      <% else %>
+
+        <div class="cardo">
           <div class="front">
-            <h4><%= pet.name %></h4>
-            <h5><%= pet.address %></h5>
-            <% if policy(pet).edit? %>
-            <%= link_to 'Edit', edit_pet_path(pet) %>
-            <% end %>
-            <% if policy(pet).destroy? %>
-            <%= link_to 'Delete', pet_path(pet), method: :delete%>
-            <% end %>
-            <% if pet.bookings.any? {|booking| booking.status == 'pending'} %>
-              <h6>Pending Bookings</h6>
-            <% end %>
-            <% pet.bookings.each do |booking| %>
-              <% if booking.status == 'pending' %>
-                <%= link_to booking.pet.name, show_bookings_path(pet) %>
-              <% end %>
-            <% end %>
+            <div class="pet-info-front">
+              <h3><strong><%= pet.name %></strong>, a <em> <%= pet.size %> <%= pet.species %> </em></h3>
+            </div>
+          </div>
+
+          <div class="back">
+
+            <div class="pet-info-back">
+              <h3><u>What humans say about me:</u></h3>
+              <p><q><%= pet.details %></q></p>
+
+              <div class="pet-adress">
+                <h4> <strong>Address</strong></h4>
+                <mark><em><%= pet.address %></mark></em>
+              </div>
+
+            <div class="cardos-link">
+              <div class="child-links">
+                <% if policy(pet).edit? %>
+                  <%= link_to 'Edit', edit_pet_path(pet) %>
+                <% end %>
+
+                <% if policy(pet).destroy? %>
+                  <%= link_to 'Delete', pet_path(pet), method: :delete%>
+                <% end %>
+
+                <% if pet.bookings.any? {|booking| booking.status == 'pending'} %>
+                  <h6>Pending Bookings</h6>
+                <% end %>
+
+                <% pet.bookings.each do |booking| %>
+                  <% if booking.status == 'pending' %>
+                    <%= link_to booking.pet.name, show_bookings_path(pet) %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+
           </div>
         </div>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
-</div>
-</div>

@@ -1,6 +1,7 @@
 <div class="container justify-content-center">
 <% if @bookings.any? {|booking| booking.status == 'pending'} %>
 <div class="container">
+  <div class="column "></div>
   <h1>Pending Bookings</h1>
 
   <% @bookings.each do |booking| %>

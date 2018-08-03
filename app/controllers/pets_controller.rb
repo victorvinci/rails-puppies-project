@@ -28,7 +28,7 @@ class PetsController < ApplicationController
     @pet.owner = @user
     authorize @pet
     if @pet.save
-      redirect_to pet_path(@pet)
+      redirect_to pet_path(@pet), notice: "Your pet is now in our database and is able to find new friends!!!"
     else
       render :new
     end

@@ -1,6 +1,6 @@
 <div class="container">
-  <%= simple_form_for @pet, html: { multipart: true } do |f| %>
-    <% if @pet.errors.any? %>
+  <%= simple_form_for @pet, wrapper: :horizontal_form, html: { multipart: true, class: 'form-horizontal' } do |f| %>
+   <!--  <% if @pet.errors.any? %>
       <div class="errors-container">
         <ul>
           <% @pet.errors.full_messages.each do |message| %>
@@ -8,15 +8,27 @@
           <% end %>
         </ul>
       </div>
-    <% end %>
+    <% end %> -->
 
-    <%= f.input :name %>
-    <%= f.input :species %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :name, label: '<i class="material-icons">
+favorite_border
+</i> Name'.html_safe %>
+    <%= f.input :species, label: '<i class="material-icons">
+pets
+</i> Species'.html_safe %>
+    <%= f.input :address, label: '<i class="material-icons">
+location_on
+</i> Address'.html_safe %>
+    <%= f.input :size, label: '<i class="material-icons">
+crop_free
+</i> Size'.html_safe, collection: ["Microscopic", "Small", "Medium", "Large", "Extra-Large", "Monster-Sized"] %>
+    <%= f.input :details, label: '<i class="material-icons">
+sentiment_satisfied_alt
+</i> Details'.html_safe, placeholder: "V v good boy/girl. Deserves lots of pats" %>
+<%= f.input :photo, as: :file, label_html: { class: 'col-sm-3 col-form-label text optional' }, input_html: { class: 'col-sm-9' }, label: '<i class="material-icons">
+add_a_photo
+</i> Add a photo'.html_safe %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= f.input :address %>
-    <%= f.input :size, collection: ["Microscopic", "Small", "Medium", "Large", "Extra-Large", "Monster-Sized"] %>
-    <%= f.input :details, placeholder: "V v good boy/girl. Deserves lots of pats" %>
     <%= f.button :submit, "Create", class: "btn btn-primary" %>
   <% end %>
 

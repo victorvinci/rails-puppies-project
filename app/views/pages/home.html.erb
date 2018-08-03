@@ -25,14 +25,14 @@
     </div>
   </div>
 </div>
-<div class="container new2" style="margin-top: -25px;">
+<div class="container new2" id="hello" style="margin-top: -25px;">
   <h2> See our best choices for you!! </h2>
   <div style="height: 70px;"></div>
   <div class="row">
     <% @pets.sample(3).each do |pet| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <%=link_to pet_path(pet) do%>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(pet.photo) %>');">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(pet.photo) unless pet.photo.blank? %>');">
         </div>
         <div class="card-description">
           <p> I'm <strong> <%= pet.name.capitalize %> </strong> <p>

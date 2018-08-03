@@ -1,11 +1,4 @@
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
+/* _body.scss contains attributes (padding/margin) related to footer*/
 
 .footer {
   position: absolute;

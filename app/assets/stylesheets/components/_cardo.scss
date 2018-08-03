@@ -1,7 +1,7 @@
 // this file name "cardo" is just to avoid conflicts with bootstrap
 .main-container {
   display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 570px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 570px));
   grid-auto-rows: minmax(550px, 100%);
   overflow: auto;
   -webkit-perspective: 800px;

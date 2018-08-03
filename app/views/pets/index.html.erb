@@ -6,7 +6,6 @@
 
   <div class="main-container">
     <% @pets.each do |pet| %>
-
         <div class="cardo">
             <div class="front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(pet.photo) unless pet.photo.blank? %>');">
             <div class="pet-info-front">
@@ -17,7 +16,7 @@
           <div class="back">
 
             <div class="pet-info-back">
-              <h3><u>What humans say about me:</u></h3>
+              <h3>What my owner think about me:</h3>
               <p><q><%= pet.details %></q></p>
 
               <div class="pet-adress">

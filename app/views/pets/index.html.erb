@@ -6,14 +6,8 @@
 
   <div class="main-container">
     <% @pets.each do |pet| %>
-      <% if pet.photo.present? %>
-
-        <div class="cardo" style="max-width: 300px;max-height: 300px;background: white">
-        </div>
-
-      <% else %>
-
         <div class="cardo">
+
           <div class="front">
             <div class="pet-info-front">
               <h3><strong><%= pet.name %></strong>, a <em> <%= pet.size %> <%= pet.species %> </em></h3>
@@ -41,13 +35,15 @@
                   <%= link_to 'Delete', pet_path(pet), method: :delete%>
                 <% end %>
 
+                <%= link_to 'Bookings', show_bookings_path(pet) %>
+
                 <% if pet.bookings.any? {|booking| booking.status == 'pending'} %>
                   <h6>Pending Bookings</h6>
                 <% end %>
 
                 <% pet.bookings.each do |booking| %>
                   <% if booking.status == 'pending' %>
-                    <%= link_to booking.pet.name, show_bookings_path(pet) %>
+                    <%= link_to booking.user.email, show_bookings_path(pet) %>
                   <% end %>
                 <% end %>
               </div>
@@ -56,6 +52,6 @@
           </div>
         </div>
         </div>
-      <% end %>
+
     <% end %>
   </div>

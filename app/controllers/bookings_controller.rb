@@ -16,8 +16,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.pet = Pet.find(params[:pet_id])
+    @pet = Pet.find(params[:pet_id])
+    @booking = Booking.new
+    @booking.parse_dates(booking_params[:booking_start], booking_params[:booking_end])
+
+    @booking.pet = @pet
     @booking.user = @user
     @booking.status = "pending"
     authorize @booking
@@ -75,7 +78,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:booking_start, :booking_end, :status)
+    params.require(:booking).permit(:booking_start, :booking_end)
   end
 
 end

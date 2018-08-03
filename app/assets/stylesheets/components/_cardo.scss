@@ -1,7 +1,7 @@
 // this file name "cardo" is just to avoid conflicts with bootstrap
 .main-container {
   display: grid;
-grid-template-columns: repeat(auto-fit, minmax(250px, 570px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 570px));
   grid-auto-rows: minmax(550px, 100%);
   overflow: auto;
   -webkit-perspective: 800px;
@@ -32,7 +32,7 @@ grid-template-columns: repeat(auto-fit, minmax(250px, 570px));
 }
 
 .front {
-  background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) 0%, rgba(66, 66, 66, 0.6) 34%), url("https://source.unsplash.com/400x400/?pets");
+  // background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) 0%, rgba(66, 66, 66, 0.6) 34%), url("https://source.unsplash.com/400x400/?pets");
   background-position: center;
   background-size: cover !important;
   display: block;

@@ -1,23 +1,36 @@
-<h1>My requests</h1>
-
-<% @bookings.each do |booking| %>
-  <h3><%= booking.pet.name %></h3>
-  <h4><%= booking.pet.owner.email %></h4>
-  <h5><%= booking.status.capitalize %></h5>
-
-
-  <% if booking.review.nil? && booking.status == 'accepted'%>
-    <%= link_to 'Review!', new_booking_review_path( booking) %>
-   <% elsif !booking.review.nil? %>
-    <%= booking.review.pet_rating %>
-    <%= booking.review.pet_content %>
-  <% end %>
-
-  <% if booking.status == 'pending' %>
-    <%= link_to 'Cancel booking!', cancel_booking_path(booking), method: :put %>
-  <% end %>
-<% end %>
+<% pending_bookings = @bookings.select {|booking| booking.status == 'pending'} %>
+<% other_bookings = @bookings.reject {|booking| booking.status == 'pending'} %>
+<div class="container">
+  <h1>My requests</h1>
+  <div class="bookings">
+    <% pending_bookings.each do |booking| %>
+      <div class="details">
+        <h3><%= booking.pet.name %></h3>
+        <h4><%= booking.pet.owner.email %></h4>
+        <h5><%= booking.status.capitalize %></h5>
+        <%= link_to 'Cancel booking!', cancel_booking_path(booking), method: :put %>
+      </div>
+    <% end %>
 
 
-
-
+    <% other_bookings.each do |booking| %>
+      <div class="details">
+        <h3><%= booking.pet.name %></h3>
+        <h4><%= booking.pet.owner.email %></h4>
+        <h5 class= "status <%= booking.status %>"><%= booking.status.capitalize %></h5>
+      <% if booking.review.nil? && booking.status == 'accepted'%>
+        <%= link_to 'Review!', new_booking_review_path( booking) %>
+        </div>
+      <% elsif !booking.review.nil? && booking.status == 'accepted' %>
+      </div>
+      <div class="review">
+        <h3>Review:</h3>
+        <%= booking.review.pet_rating %>
+        <%= booking.review.pet_content %>
+       </div>
+       <% else %>
+     </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>

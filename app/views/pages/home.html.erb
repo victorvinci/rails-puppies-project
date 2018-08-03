@@ -1,3 +1,4 @@
+<body style="background-color:white;">
 <div class="wrapper" style="margin: -70px -70px 0px -70px;">
   <header class="home-banner">
 
@@ -36,10 +37,11 @@
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(pet.photo) unless pet.photo.blank? %>');">
         </div>
         <div class="card-description">
-          <p> I'm <strong> <%= pet.name.capitalize %> </strong> <p>
+          <p> I'm <strong> <%= pet.name.capitalize %> </strong> </p>
         </div>
         <% end %>
       </div>
       <% end %>
   </div>
 </div>
+</body>

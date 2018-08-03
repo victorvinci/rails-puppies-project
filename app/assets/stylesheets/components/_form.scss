@@ -1,17 +1,13 @@
-.form-wrapper {
-  padding: 50px 300px;
-  background-color: #F7F7F7;
-
-  h2 {
-    margin-bottom: 40px;
-    text-align: center;
-  }
+span h2 {
+  margin-top: 30px;
+  text-align: center;
 }
 
 .form-container {
   display: flex;
   align-items: space-around;
   justify-content: center;
+  padding: 50px 300px;
 
 }
 
@@ -36,4 +32,10 @@
 abbr {
   text-decoration: none;
   border-bottom: none !important;
+}
+
+.datetime.required.form-control{
+  display: inline-block;
+  width: 30%;
+  margin-right: 5px;
 }

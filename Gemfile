@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'bootsnap', require: false
 # Add cloudinary for photo display/render
 gem 'cloudinary'

@@ -12,8 +12,6 @@
         <%= link_to 'Cancel booking!', cancel_booking_path(booking), method: :put %>
       </div>
     <% end %>
-
-
     <% other_bookings.each do |booking| %>
       <div class="details" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(booking.pet.photo) unless booking.pet.photo.blank? %>');">
         <h3><%= booking.pet.name %></h3>

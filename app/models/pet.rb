@@ -1,6 +1,8 @@
 class Pet < ApplicationRecord
   include PgSearch
 
+ before_save :capitalize_name
+
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
   has_many :bookings
 
@@ -17,4 +19,9 @@ class Pet < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   pg_search_scope :main_search, against: %i(details size species)
+
+  private
+  def capitalize_name
+    self.name.capitalize!
+  end
 end

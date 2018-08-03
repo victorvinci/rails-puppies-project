@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Overlock');
 
-* {
-  box-sizing: border-box;
+html {
+  /* To position footer at the bottom */
+  position: relative;
+  min-height: 100%;
 }
 
 body {
+  /* Padding top by navbar height */
+  padding-top: 70px;
+   /* Margin bottom by footer height */
+  margin-bottom: 60px !important;
   font-family: "Fira Sans", "Helvetica", "sans-serif";
   margin: 0;
   background: #fff;

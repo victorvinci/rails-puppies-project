@@ -23,7 +23,7 @@
             <% end %>
             <% pet.bookings.each do |booking| %>
               <% if booking.status == 'pending' %>
-                <%= link_to booking.pet.name, show_bookings_path(pet), method: :put %>
+                <%= link_to booking.pet.name, show_bookings_path(pet) %>
               <% end %>
             <% end %>
           </div>

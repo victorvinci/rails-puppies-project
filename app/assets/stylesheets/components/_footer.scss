@@ -1,4 +1,9 @@
+/* _body.scss contains attributes (padding/margin) related to footer*/
+
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background: #F4F4F4;
   display: flex;
   align-items: center;

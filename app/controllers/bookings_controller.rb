@@ -44,9 +44,24 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.status = 'accepted'
     @booking.save
-    redirect_to pets_path, notice: 'Accepted!'
+    redirect_to show_bookings_path(@booking.pet), notice: 'Accepted!'
   end
 
+  def reject_booking
+    @booking = Booking.find(params[:booking_id])
+    authorize @booking
+    @booking.status = 'rejected'
+    @booking.save
+    redirect_to show_bookings_path(@booking.pet), notice: 'Rejected!'
+  end
+
+  def cancel_booking
+    @booking = Booking.find(params[:booking_id])
+    authorize @booking
+    @booking.status = 'canceled'
+    @booking.save
+    redirect_to bookings_path, method: :put, notice: 'Accepted!'
+  end
 
   private
 

@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     authorize @booking
     if @booking.save
-      redirect_to pet_path(@booking.pet), notice: 'Booking made. Enjoy your pet.'
+      redirect_to bookings_path, notice: "Booking request sent. Waiting for owner's approval."
     else
       render :new
     end
@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to pet_path(@booking.pet), notice: 'Booking changed. Enjoy your pet.'
+      redirect_to bookings_path, notice: 'Booking changed. Enjoy your pet.'
     else
       render :edit
     end

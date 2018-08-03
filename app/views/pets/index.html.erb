@@ -6,7 +6,6 @@
 
   <div class="main-container">
     <% @pets.each do |pet| %>
-
         <div class="cardo">
             <div class="front" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path(pet.photo) unless pet.photo.blank? %>');">
             <div class="pet-info-front">
@@ -35,13 +34,15 @@
                   <%= link_to 'Delete', pet_path(pet), method: :delete%>
                 <% end %>
 
+                <%= link_to 'Bookings', show_bookings_path(pet) %>
+
                 <% if pet.bookings.any? {|booking| booking.status == 'pending'} %>
                   <h6>Pending Bookings</h6>
                 <% end %>
 
                 <% pet.bookings.each do |booking| %>
                   <% if booking.status == 'pending' %>
-                    <%= link_to booking.pet.name, show_bookings_path(pet) %>
+                    <%= link_to booking.user.email, show_bookings_path(pet) %>
                   <% end %>
                 <% end %>
               </div>

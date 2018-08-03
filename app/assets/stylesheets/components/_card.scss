@@ -7,7 +7,14 @@
   display: flex;
   position: relative;
   border-radius: 5px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
+
+.card:hover {
+  // height: 275px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
 .card-user {
   position: absolute;
   right: 10px;

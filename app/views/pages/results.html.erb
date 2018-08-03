@@ -10,6 +10,7 @@
             <h3> Call me: <strong><%= result.name %> </strong>, a <em> <%= result.size %> <%= result.species %> </em></h3>
           </div>
         </div>
+
         <div class="back">
           <div class="pet-info-back">
             <h3><u>What humans say about me:</u></h3>
@@ -19,12 +20,18 @@
               </q>
             </p>
             <div class="pet-adress">
-              <h4> <strong>You can pet me at:</strong></h4>
-              <p> <mark><em> <%= result.address %> </em></mark></p>
+              <h4> <strong>You can pet me at</strong></h4>
+              <mark><em> <%= result.address %> </em></mark>
             </div>
-            <div class="cardos-link">
-              <%= link_to "Meet this friend", pet_path(result), class: "inbox-sf-add-btn tip" %>
-                <%= link_to "Book a time with your new friend", new_pet_booking_path(result), class: "inbox-sf-add-btn tip" %>
+              <div class="btn-container">
+                <div class="button">
+                  <%= link_to "Meet this friend", pet_path(result)%>
+                </div>
+                <div class="button">
+                  <div class="">
+                  <%= link_to "Book a time with your new friend", new_pet_booking_path(result)%>
+                  </div> <!-- NAO EH BOTAO -->
+              </div>
             </div>
           </div>
         </div>

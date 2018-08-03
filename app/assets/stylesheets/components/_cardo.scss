@@ -1,4 +1,17 @@
 // this file name "cardo" is just to avoid conflicts with bootstrap
+.main-container {
+  display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 570px));
+  grid-auto-rows: minmax(550px, 100%);
+  overflow: auto;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+  border-radius: 4px;
+  grid-gap: 1em;
+  margin-left: 2.8%;
+  height: 80vh;
+}
+
 .cardo {
   position: relative;
   width: 100%;
@@ -58,36 +71,61 @@
 
 .pet-info-back h3 {
   color: black;
-  font-size: 40px;
+  font-size: 220%;
   padding: 2%;
   text-align: center;
+  position: relative;
 }
 
 .pet-info-back p {
   color: black;
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 0;
   padding: 1%;
   text-align: center;
+  position: relative;
 }
 
 .pet-adress {
   margin-top: 1%;
   padding: 8px;
+  text-align: center;
 }
 
 .pet-info-back h4 {
   color: black;
-  font-size: 3.1rem;
+  font-size: 2.3rem;
   text-align: center;
+  position: relative;
+}
+
+.pet-info-back mark {
+  color: black;
+  font-size: 2.1rem;
+  text-align: center;
+  position: relative;
+}
+
+
+.pet-adress:after {
+  content: "";
+  display: block;
+}
+
+.cardos-link, .pet-adress:after {
+  height: 30%;
 }
 
 .cardos-link {
-  display: grid;
-  padding: 1%;
-  font-size: 1.5rem;
-  justify-content: space-around;
-  margin: 1% 0 0 0;
+  display: flex;
+  padding: 5%;
+  font-size: 70%;
+  margin: 0 auto;
+  position: relative;
+  /* background-color: black; */
+  height: 95%;
+  flex-direction: row;
+  justify-content:         space-between;
 }
 
 .cardo .back {
@@ -96,4 +134,17 @@
 
 .cardo.flipped {
   transform: rotateY(180deg);
+}
+
+.button-cardos {
+  border: 1.5px solid #7E7E7E;
+  text-align: center;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .8s;
+  border-radius: 5%;
+  height: 100%;
+  width: 50%;
+  padding: 1%;
+  margin: 1%;
 }

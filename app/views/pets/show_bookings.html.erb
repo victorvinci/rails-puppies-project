@@ -1,31 +1,47 @@
+<div class="container justify-content-center">
 <% if @bookings.any? {|booking| booking.status == 'pending'} %>
 <div class="container">
   <h1>Pending Bookings</h1>
 
   <% @bookings.each do |booking| %>
     <% if booking.status == 'pending' %>
+    <div class="row justify-content-center">
       <h3><%= booking.user.email %></h3>
       <h4><%= booking.booking_start  %></h4>
       <h5><%= booking.booking_end %></h5>
       <%= link_to 'Accept booking!', accept_booking_path(booking), method: :put %>
       <%= link_to 'Reject booking!', reject_booking_path(booking), method: :put %>
+      </row>
     <% end %>
   <% end %>
 </div>
 <% end %>
 
 <% if @bookings.any? {|booking| booking.status != 'pending'} %>
-  <div class="container">
   <h2>Past Bookings!</h2>
-  <% @bookings.each do |booking| %>
-    <% if booking.status != 'pending' %>
-      <h3><%= booking.user.email %></h3>
-      <h4><%= booking.booking_start  %></h4>
-      <h5><%= booking.booking_end %></h5>
-      <h6><%= booking.status %></h6>
-    <% end %>
-  <% end %>
-</div>
-<% end %>
 
+    <% @bookings.each do |booking| %>
+      <% if booking.status != 'pending' %>
+      <div class="row justify-content-center">
+        <div class="bookings">
+          <div class="details">
+            <h3><%= booking.user.email %></h3>
+            <h4><%= booking.booking_start  %></h4>
+            <h5><%= booking.booking_end %></h5>
+            <h6><%= booking.status %></h6>
+          </div>
+      <% end %>
+
+          <div class="review">
+            <% if !booking.review.nil? %>
+            <h3>Review:</h3>
+            <h4><%= booking.review.pet_rating %></h4>
+            <h5><%= booking.review.pet_content %></h5>
+            <% end %>
+          </div>
+        </div>
+        </div>
+    <% end %>
+<% end %>
+</div>
 

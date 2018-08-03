@@ -23,14 +23,13 @@
               <h4> <strong>You can pet me at</strong></h4>
               <mark><em> <%= result.address %> </em></mark>
             </div>
-              <div class="btn-container">
-                <div class="button">
-                  <%= link_to "Meet this friend", pet_path(result)%>
+              <div class="cardos-link">
+                <div class="child-links">
+                  <a href="<%= pet_path(result) %>"><i class="fas fa-map-marker-alt"></i><h5>Meet me!</h5></a>
                 </div>
-                <div class="button">
-                  <div class="">
-                  <%= link_to "Book a time with your new friend", new_pet_booking_path(result)%>
-                  </div> <!-- NAO EH BOTAO -->
+                <div class="child-links">
+                  <a href="<%= new_pet_booking_path(result) %>"><i class="fas fa-clipboard-list"></i><h5>Book now</h5></a>
+                </div> <!-- NAO EH BOTAO -->
               </div>
             </div>
           </div>

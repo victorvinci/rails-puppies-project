@@ -34,12 +34,16 @@
       <% end %>
 
 
-            <% if !booking.review.nil? %>
-          <div class="review">
-            <h3>Review:</h3>
-            <h4><%= booking.review.pet_rating %> </h4>
-            <h5><%= booking.review.pet_content %> </h5>
-          </div>
+    <% if !booking.review.nil? %>
+      <div class="review">
+        <h3>Review:</h3>
+          <p>
+            <% booking.review.pet_rating.times do %>
+            <i class='fas fa-paw'></i>
+            <% end %></p>
+            <p><%= booking.review.pet_content %></p>
+      </div>
+
         <% end %>
         </div>
         </div>

@@ -26,10 +26,10 @@
       <div class="row justify-content-center">
         <div class="bookings">
           <div class="details">
-            <h3><%= booking.user.email %></h3>
-            <h4><%= booking.booking_start  %></h4>
+            <h6><%= booking.user.email %></h6>
+            <h5><%= booking.booking_start  %></h5>
             <h5><%= booking.booking_end %></h5>
-            <h6><%= booking.status %></h6>
+            <h5><%= booking.status %></h5>
           </div>
       <% end %>
 
@@ -37,8 +37,8 @@
             <% if !booking.review.nil? %>
           <div class="review">
             <h3>Review:</h3>
-            <h4><%= booking.review.pet_rating %></h4>
-            <h5><%= booking.review.pet_content %></h5>
+            <h4><%= booking.review.pet_rating %> </h4>
+            <h5><%= booking.review.pet_content %> </h5>
           </div>
         <% end %>
         </div>

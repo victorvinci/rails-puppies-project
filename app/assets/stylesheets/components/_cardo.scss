@@ -1,0 +1,168 @@
+// this file name "cardo" is just to avoid conflicts with bootstrap
+.main-container {
+  display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 570px));
+  grid-auto-rows: minmax(550px, 100%);
+  overflow: auto;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+  border-radius: 4px;
+  grid-gap: 1em;
+  margin-left: 2.8%;
+  height: 80vh;
+}
+
+.cardo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 100rem;
+  max-height: 500px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  margin: 20px auto;
+}
+
+.cardo div {
+  backface-visibility: hidden;
+}
+
+.front {
+  background: linear-gradient(360deg, rgba(0, 0, 0, 0.8) 0%, rgba(66, 66, 66, 0.6) 34%), url("https://source.unsplash.com/400x400/?pets");
+  background-position: center;
+  background-size: cover !important;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.pet-info-front {
+  position: absolute;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+
+.pet-info-front h3 {
+  color: white;
+  font-size: 3rem;
+  margin: 385px 0 0 1%;
+  padding: 2%;
+}
+
+.back {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.pet-info-back {
+  position: absolute;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  display: grid;
+  margin: -518px 0 0 0;
+}
+
+.pet-info-back h3 {
+  color: black;
+  font-size: 220%;
+  padding: 2%;
+  text-align: center;
+  position: relative;
+}
+
+.pet-info-back p {
+  color: black;
+  font-size: 2rem;
+  margin: 0;
+  padding: 1%;
+  text-align: center;
+  position: relative;
+}
+
+.pet-adress {
+  margin-top: 1%;
+  padding: 8px;
+  text-align: center;
+}
+
+.pet-info-back h4 {
+  color: black;
+  font-size: 2.3rem;
+  text-align: center;
+  position: relative;
+}
+
+.pet-info-back mark {
+  color: black;
+  font-size: 2.1rem;
+  text-align: center;
+  position: relative;
+}
+
+.pet-adress:after {
+  content: "";
+  display: block;
+}
+
+.cardos-link, .pet-adress:after {
+  height: 30%;
+}
+
+.cardos-link {
+  display: flex;
+  padding: 7%;
+  position: relative;
+  /* background-color: black; */
+  flex-direction: row;
+  justify-content: space-around;
+    font-size: 3.4rem;
+}
+
+.cardos-link a:hover {
+  text-decoration: none;
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  font-size: 3.8rem;
+}
+
+.child-links {
+  text-align: center;
+
+}
+
+.child-links h5 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin: 0;
+  color: #469AE0;
+  /* background-color: black; */
+}
+
+
+
+.cardo .back {
+  transform: rotateY(180deg);
+}
+
+.cardo.flipped {
+  transform: rotateY(180deg);
+}
+
+// .button-cardos {
+//   border: 1.5px solid #7E7E7E;
+//   text-align: center;
+//   text-transform: uppercase;
+//   overflow: hidden;
+//   transition: .8s;
+//   border-radius: 5%;
+//   height: 100%;
+//   width: 50%;
+//   padding: 1%;
+//   margin: 1%;
+// }
